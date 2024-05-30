@@ -12,6 +12,7 @@ namespace EconoTrack.Domain.Abstractions
         protected Entity(Guid id)
         {
             Id = id;
+            CreatedAt = DateTime.UtcNow;
         }
 
         protected Entity()
@@ -19,6 +20,8 @@ namespace EconoTrack.Domain.Abstractions
         }
 
         public Guid Id { get; init; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
         public IReadOnlyList<IDomainEvent> GetDomainEvents()
         {
