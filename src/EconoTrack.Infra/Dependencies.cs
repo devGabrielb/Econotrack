@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace EconoTrack.Infra
 {
-    public static class Dependecys
+    public static class Dependencies
     {
         public static IServiceCollection AddInfra(this IServiceCollection services, IConfiguration configuration)
         {
