@@ -1,0 +1,23 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+version: "3.4"
+
+services:
+  api-service:
+    build:
+      context: .
+      dockerfile: src/EconoTrack.Api/Dockerfile
+    ports:
+      - 5194:5194
+
+  db-postgress:
+    image: postgres:latest
+    container_name: db-postgress
+    environment:
+      - POSTGRES_DB=EconoTrack
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+    volumes:
+      - /db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
